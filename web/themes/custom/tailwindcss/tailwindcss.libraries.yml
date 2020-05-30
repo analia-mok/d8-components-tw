@@ -1,0 +1,7 @@
+global-styling:
+  version: VERSION
+  # js:
+  #   dist/common.js: { minified: true }
+  css:
+    theme:
+      dist/tailwind.css: { minified: true }

@@ -1,0 +1,27 @@
+name: TailwindCSS
+type: theme
+description: 'TailwindCSS-based theme'
+package: Core
+version: VERSION
+core: 8.x
+libraries:
+  - tailwindcss/global-styling
+
+base theme: classy
+
+regions:
+  banner: Banner
+  header: Header
+  content: Content
+  footer: Footer
+
+features:
+  logo: true
+  name: true
+  slogan: true
+  node_user_picture: false
+  comment_user_picture: false
+  comment_user_verification: true
+  favicon: true
+  main_menu: true
+  secondary_menu: true

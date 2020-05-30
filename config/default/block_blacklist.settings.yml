@@ -1,8 +1,8 @@
 system_match: ''
 system_prefix: ''
 system_regex: ''
-layout_match: ''
-layout_prefix: ''
-layout_regex: ''
+layout_match: "help_block\r\nsystem_powered_by_block\r\nworkspace_switcher\r\nuser_login_block\r\nsystem_messages_block\r\nlocal_tasks_block\r\nlocal_actions_block\r\ndevel_switch_user\r\nshortcuts\r\nnode_syndicate_block"
+layout_prefix: "field_block:user\r\nextra_field_block:user:user\r\nsystem_menu_block"
+layout_regex: "/field_block:node:(.*):nid/\r\n/field_block:node:(.*):vid/\r\n/field_block:node:(.*):revision_(.*)/\r\n/field_block:node:(.*):(.*)_langcode/\r\n/field_block:node:(.*):content_translation_source/\r\n/field_block:node:(.*):type/\r\n/field_block:node:(.*):content_translation_outdated/\r\n/field_block:node:(.*):promote/\r\n/field_block:node:(.*):sticky/"
 _core:
   default_config_hash: S6rQarWvkmKD23_sdFs_HQdHZbyd6KX58eINnvUL9n4
