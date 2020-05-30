@@ -1,0 +1,4 @@
+name: tailwind-components
+recipe: drupal8
+config:
+  webroot: web
