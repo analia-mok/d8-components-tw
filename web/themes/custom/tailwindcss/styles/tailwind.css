@@ -2,4 +2,13 @@
 
 @tailwind components;
 
+.button {
+  @apply inline-block px-4 py-2 bg-indigo-800 text-indigo-100 transition duration-200;
+}
+
+.button:hover,
+.button:focus {
+  @apply bg-indigo-200 text-indigo-800;
+}
+
 @tailwind utilities;

@@ -5,6 +5,7 @@ package: Core
 version: VERSION
 core: 8.x
 libraries:
+  - tailwindcss/interfont
   - tailwindcss/global-styling
 
 base theme: classy
