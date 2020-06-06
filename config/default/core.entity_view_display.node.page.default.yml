@@ -61,7 +61,16 @@ third_party_settings:
       - User
       - core
     entity_view_mode_restriction:
-      whitelisted_blocks: {  }
+      whitelisted_blocks:
+        'Content fields': {  }
+        Forms: {  }
+        Help: {  }
+        'Lists (Views)': {  }
+        Menus: {  }
+        System: {  }
+        User: {  }
+        core:
+          - page_title_block
       blacklisted_blocks: {  }
       allowed_layouts:
         - tailwindcss_onecol

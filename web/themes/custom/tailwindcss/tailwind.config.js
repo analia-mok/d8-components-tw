@@ -4,8 +4,13 @@ module.exports = {
       fontFamily: {
         'sans': ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', "Segoe UI", 'Roboto', "Helvetica Neue", 'Arial', "Noto Sans", 'sans-serif',],
       },
+      minHeight: {
+        'half-screen': '50vh',
+      }
     },
   },
   variants: {},
-  plugins: []
+  plugins: [
+    require('@tailwindcss/custom-forms'),
+  ]
 }

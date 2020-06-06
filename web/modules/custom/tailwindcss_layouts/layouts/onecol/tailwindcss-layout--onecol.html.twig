@@ -14,7 +14,7 @@
 {% if content %}
   <section{{ attributes.addClass(['md:flex-no-wrap']) }}>
     {% if content.content %}
-      <div {{ region_attributes.content.addClass('col') }}>
+      <div {{ region_attributes.content.addClass('w-full') }}>
         {{ content.content }}
       </div>
     {% endif %}

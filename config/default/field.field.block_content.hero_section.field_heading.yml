@@ -1,10 +1,12 @@
-uuid: efb493d9-7967-4b40-a4de-d01dec447fd7
+uuid: 957750de-903e-4ad2-a6f2-7bf4cf3d2912
 langcode: en
 status: true
 dependencies:
   config:
     - block_content.type.hero_section
     - field.storage.block_content.field_heading
+  module:
+    - text
 id: block_content.hero_section.field_heading
 field_name: field_heading
 entity_type: block_content
@@ -16,4 +18,4 @@ translatable: false
 default_value: {  }
 default_value_callback: ''
 settings: {  }
-field_type: string
+field_type: text

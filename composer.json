@@ -16,6 +16,7 @@
     ],
     "require": {
         "composer/installers": "^1.2",
+        "cweagans/composer-patches": "~1.0",
         "drupal/admin_toolbar": "^2.2",
         "drupal/adminimal_admin_toolbar": "^1.11",
         "drupal/adminimal_theme": "^1.5",
@@ -25,7 +26,9 @@
         "drupal/core-project-message": "^8.8",
         "drupal/core-recommended": "^8.8",
         "drupal/layout_builder_modal": "^1.1",
-        "drupal/layout_builder_restrictions": "^2.7"
+        "drupal/layout_builder_restrictions": "^2.7",
+        "drupal/twig_field_value": "^2.0",
+        "drupal/twig_tweak": "^2.6"
     },
     "require-dev": {
         "dealerdirect/phpcodesniffer-composer-installer": "^0.6.2",
@@ -40,6 +43,13 @@
         "sort-packages": true
     },
     "extra": {
+        "enable-patching": true,
+        "patches": {
+            "drupal/core": {
+                "#3049332-5": "https://www.drupal.org/files/issues/2019-06-25/drupal-layout_builder_inline_block_empty_block_error-3049332-8.7.x_0.patch",
+                "#3045171-140": "https://www.drupal.org/files/issues/2020-02-04/layout-builder-save-issue-3045171-140.patch"
+            }
+        },
         "drupal-scaffold": {
             "locations": {
                 "web-root": "web/"

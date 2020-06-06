@@ -24,13 +24,12 @@ bundle: hero_section
 mode: two_column
 content:
   field_heading:
+    type: text_default
     weight: 0
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
     region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
   field_hero_image:
     type: entity_reference_label
     weight: 4

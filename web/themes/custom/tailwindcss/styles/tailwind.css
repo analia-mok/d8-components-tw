@@ -11,4 +11,9 @@
   @apply bg-indigo-200 text-indigo-800;
 }
 
+fieldset,
+.fieldset {
+  @apply p-4;
+}
+
 @tailwind utilities;
