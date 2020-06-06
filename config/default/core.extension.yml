@@ -43,6 +43,7 @@ module:
   search: 0
   shortcut: 0
   system: 0
+  tailwindcss_layouts: 0
   taxonomy: 0
   text: 0
   toolbar: 0
@@ -59,6 +60,7 @@ theme:
   bartik: 0
   seven: 0
   adminimal_theme: 0
+  tailwindcss: 0
 profile: standard
 _core:
   default_config_hash: R4IF-ClDHXxblLcG0L7MgsLvfBIMAvi_skumNFQwkDc

@@ -1,0 +1,51 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a two-column layout.
+ *
+ * Available variables:
+ * - content: The content for this layout.
+ * - attributes: HTML attributes for the layout <div>.
+ *
+ * @ingroup themeable
+ */
+#}
+
+{%
+ set default_first_classes = [
+   'flex-1',
+   'w-full',
+   'md:w-2/4'
+ ]
+%}
+
+{%
+  set default_second_classes = [
+    'flex-1',
+    'w-full',
+    'md:w-2/4'
+  ]
+%}
+
+{% set first_classes = settings.region_class_overrides.first is not empty ? settings.region_class_overrides.first|split(' ') : default_first_classes %}
+{% set second_classes = settings.region_class_overrides.second is not empty ? settings.region_class_overrides.second|split(' ') : default_second_classes %}
+
+{% if content %}
+  <div class="two-col {{ settings.wrapper_classes }}">
+    <div{{ attributes.addClass(['md:flex-no-wrap']) }}>
+
+        {% if content.first %}
+          <div {{ region_attributes.first.addClass(first_classes) }}>
+            {{ content.first }}
+          </div>
+        {% endif %}
+
+        {% if content.second %}
+          <div {{ region_attributes.second.addClass(second_classes) }}>
+            {{ content.second }}
+          </div>
+        {% endif %}
+
+    </div>
+  </div>
+{% endif %}

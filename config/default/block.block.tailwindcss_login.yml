@@ -1,0 +1,22 @@
+uuid: 58f0393f-5a02-4fe9-9584-121abcab5d61
+langcode: en
+status: false
+dependencies:
+  module:
+    - user
+  theme:
+    - tailwindcss
+_core:
+  default_config_hash: 862sIulDdHmF0vBU1s2j2_a_CwkxursrL0pIrMDzzOg
+id: tailwindcss_login
+theme: tailwindcss
+region: content
+weight: 3
+provider: null
+plugin: user_login_block
+settings:
+  id: user_login_block
+  label: 'User login'
+  provider: user
+  label_display: visible
+visibility: {  }

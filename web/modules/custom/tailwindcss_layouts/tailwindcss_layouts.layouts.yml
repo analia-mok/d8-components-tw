@@ -1,0 +1,63 @@
+tailwindcss_onecol:
+  label: 'One column'
+  path: layouts/onecol
+  template: tailwindcss-layout--onecol
+  class: '\Drupal\tailwindcss_layouts\Plugin\Layout\LayoutBase'
+  category: 'Columns: 1'
+  default_region: content
+  icon_map:
+    - [content]
+  regions:
+    content:
+      label: Content
+
+tailwindcss_twocol_50_50:
+  label: 'Two column 50/50'
+  path: layouts/twocol_50_50
+  template: tailwindcss-layout--twocol-50-50
+  class: '\Drupal\tailwindcss_layouts\Plugin\Layout\LayoutBase'
+  category: 'Columns: 2'
+  default_region: first
+  icon_map:
+    - [first, second]
+  regions:
+    first:
+      label: First
+    second:
+      label: Second
+
+tailwindcss_threecol:
+  label: 'Three Columns'
+  path: layouts/threecol
+  template: tailwindcss-layout--threecol
+  class: '\Drupal\tailwindcss_layouts\Plugin\Layout\LayoutBase'
+  category: 'Columns: 3'
+  default_region: first
+  icon_map:
+    - [first, second, third]
+  regions:
+    first:
+      label: First
+    second:
+      label: Second
+    third:
+      label: Third
+
+tailwindcss_fourcol:
+  label: 'Four Columns'
+  path: layouts/fourcol
+  template: tailwindcss-layout--fourcol
+  class: '\Drupal\tailwindcss_layouts\Plugin\Layout\LayoutBase'
+  category: 'Columns: 4'
+  default_region: first
+  icon_map:
+    - [first, second, third, fourth]
+  regions:
+    first:
+      label: First
+    second:
+      label: Second
+    third:
+      label: Third
+    fourth:
+      label: Fourth

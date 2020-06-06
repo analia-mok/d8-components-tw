@@ -1,0 +1,84 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a two-column layout.
+ *
+ * Available variables:
+ * - content: The content for this layout.
+ * - attributes: HTML attributes for the layout <div>.
+ *
+ * @ingroup themeable
+ */
+#}
+
+{%
+ set default_first_classes = [
+   'flex-auto',
+   'w-full',
+   'md:w-2/4',
+   'xl:w-1/4'
+ ]
+%}
+
+{%
+  set default_second_classes = [
+    'flex-auto',
+    'w-full',
+    'md:w-2/4',
+    'xl:w-1/4'
+  ]
+%}
+
+{%
+  set default_third_classes = [
+    'flex-auto',
+    'w-full',
+    'md:w-2/4',
+    'xl:w-1/4'
+  ]
+%}
+
+{%
+  set default_fourth_classes = [
+    'flex-auto',
+    'w-full',
+    'md:w-2/4',
+    'xl:w-1/4'
+  ]
+%}
+
+{% set first_classes = settings.region_class_overrides.first is not empty ? settings.region_class_overrides.first|split(' ') : default_first_classes %}
+{% set second_classes = settings.region_class_overrides.second is not empty ? settings.region_class_overrides.second|split(' ') : default_second_classes %}
+{% set third_classes = settings.region_class_overrides.third is not empty ? settings.region_class_overrides.third|split(' ') : default_second_classes %}
+{% set fourth_classes = settings.region_class_overrides.fourth is not empty ? settings.region_class_overrides.fourth|split(' ') : default_second_classes %}
+
+{% if content %}
+  <div class="four-col {{ settings.wrapper_classes }}">
+    <div{{ attributes.addClass(['md:flex-wrap', 'xl:flex-no-wrap']) }}>
+
+        {% if content.first %}
+          <div {{ region_attributes.first.addClass(first_classes) }}>
+            {{ content.first }}
+          </div>
+        {% endif %}
+
+        {% if content.second %}
+          <div {{ region_attributes.second.addClass(second_classes) }}>
+            {{ content.second }}
+          </div>
+        {% endif %}
+
+        {% if content.third %}
+          <div {{ region_attributes.second.addClass(third_classes) }}>
+            {{ content.third }}
+          </div>
+        {% endif %}
+
+        {% if content.fourth %}
+          <div {{ region_attributes.second.addClass(fourth_classes) }}>
+            {{ content.fourth }}
+          </div>
+        {% endif %}
+    </div>
+  </div>
+{% endif %}

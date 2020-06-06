@@ -1,0 +1,51 @@
+<?php
+
+/**
+ * @file
+ * Contains tailwindcss_layouts.module.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * See https://www.drupal.org/project/drupal/issues/3028391.
+ */
+function tailwindcss_layouts_form_layout_builder_update_block_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $form['settings']['block_form']['#process'][] = '_tailwindcss_layouts_inline_block_form_alter';
+}
+
+/**
+ * Process callback for inline block forms.
+ *
+ * Clean up the inline block forms to provide a better user experience for
+ * editors.
+ */
+function _tailwindcss_layouts_inline_block_form_alter(array &$element, FormStateInterface $form_state, array &$complete_form) {
+  // Only change forms for inline blocks.
+  if (!isset($element['#block'])) {
+    return;
+  }
+
+  // Change block description to Component Type. This matches the terminology
+  // used internally at tailwindcss.
+  $complete_form['settings']['admin_label']['#title'] = t('Component Type');
+
+  // None of our custom blocks currently have block titles in the design. If a
+  // heading is part of the block, a dedicated field is used for it. Most of
+  // time, the block label has been removed from the block template. Remove the
+  // block title and label_display fields to clean up the forms.
+  $complete_form['settings']['label']['#access'] = FALSE;
+  $complete_form['settings']['label_display']['#access'] = FALSE;
+
+  // Set a default value for the label since it is a required field.
+  $complete_form['settings']['label']['#value'] = 'Inline Block Title';
+
+  // Set the show title field to FALSE in case we ever add this functionality
+  // back in.
+  $complete_form['settings']['label_display']['#checked'] = FALSE;
+
+  return $element;
+}
