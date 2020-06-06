@@ -1,0 +1,68 @@
+uuid: 6eaad867-3bba-4ff0-a9dd-aa9f9bdff1a6
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.hero_section
+    - core.entity_view_mode.block_content.two_column
+    - field.field.block_content.hero_section.field_heading
+    - field.field.block_content.hero_section.field_hero_image
+    - field.field.block_content.hero_section.field_hero_links
+    - field.field.block_content.hero_section.field_section_description
+    - field.field.block_content.hero_section.field_subheading
+  module:
+    - layout_builder
+    - link
+    - text
+third_party_settings:
+  layout_builder:
+    allow_custom: false
+    enabled: false
+id: block_content.hero_section.two_column
+targetEntityType: block_content
+bundle: hero_section
+mode: two_column
+content:
+  field_heading:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_hero_image:
+    type: entity_reference_label
+    weight: 4
+    region: content
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+  field_hero_links:
+    weight: 3
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_section_description:
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_subheading:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden: {  }

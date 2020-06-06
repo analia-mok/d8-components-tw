@@ -1,0 +1,28 @@
+uuid: 60fbd7ae-1fea-4223-a0c6-168b07cb06ba
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.hero_section
+    - field.storage.block_content.field_hero_image
+    - media.type.image
+id: block_content.hero_section.field_hero_image
+field_name: field_hero_image
+entity_type: block_content
+bundle: hero_section
+label: 'Hero Image'
+description: '(Optional) Only used in two column view mode'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

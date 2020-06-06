@@ -1,0 +1,55 @@
+uuid: b8103947-624b-416b-8eaf-64159d7eb423
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.hero_section
+    - field.field.block_content.hero_section.field_heading
+    - field.field.block_content.hero_section.field_hero_image
+    - field.field.block_content.hero_section.field_hero_links
+    - field.field.block_content.hero_section.field_section_description
+    - field.field.block_content.hero_section.field_subheading
+  module:
+    - link
+    - text
+id: block_content.hero_section.default
+targetEntityType: block_content
+bundle: hero_section
+mode: default
+content:
+  field_heading:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_hero_links:
+    weight: 3
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_section_description:
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_subheading:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden:
+  field_hero_image: true

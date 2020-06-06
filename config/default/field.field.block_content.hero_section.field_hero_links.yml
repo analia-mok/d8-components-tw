@@ -1,0 +1,23 @@
+uuid: ed978eae-4ad2-4d91-9d23-72acf93abce1
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.hero_section
+    - field.storage.block_content.field_hero_links
+  module:
+    - link
+id: block_content.hero_section.field_hero_links
+field_name: field_hero_links
+entity_type: block_content
+bundle: hero_section
+label: 'Hero Links'
+description: 'Display (optional) links to direct users to.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 2
+field_type: link

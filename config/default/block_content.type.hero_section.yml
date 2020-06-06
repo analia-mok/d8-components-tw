@@ -1,0 +1,8 @@
+uuid: 6bfe3c3a-2555-4ca9-ba3c-6ff20977e31e
+langcode: en
+status: true
+dependencies: {  }
+id: hero_section
+label: 'Hero Section'
+revision: 0
+description: 'A page hero section. Some view modes work best with a section set to "Full" (i.e. full page width)'

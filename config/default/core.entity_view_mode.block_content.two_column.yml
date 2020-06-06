@@ -1,0 +1,10 @@
+uuid: 0141a798-8ea4-4dfe-84f1-b941528915cc
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+id: block_content.two_column
+label: 'Two Column'
+targetEntityType: block_content
+cache: true
