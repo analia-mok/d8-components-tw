@@ -102,6 +102,7 @@ class LayoutBase extends LayoutDefault implements PluginFormInterface {
     return [
       '' => 'White',
       'bg-dark-indigo' => 'Dark Indigo',
+      'gray' => 'Gray',
     ];
   }
 
@@ -118,6 +119,9 @@ class LayoutBase extends LayoutDefault implements PluginFormInterface {
     $classMap = [
       'bg-dark-indigo' => [
         'bg-indigo-800',
+      ],
+      'gray' => [
+        'bg-gray-100',
       ],
     ];
 

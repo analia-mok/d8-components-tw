@@ -1,0 +1,50 @@
+uuid: c1cbb04d-aa5a-491e-8b72-f67484f65a5d
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.cta_simple
+    - core.entity_view_mode.block_content.justified
+    - field.field.block_content.cta_simple.field_heading
+    - field.field.block_content.cta_simple.field_links
+    - field.field.block_content.cta_simple.field_subheading
+  module:
+    - layout_builder
+    - link
+    - text
+third_party_settings:
+  layout_builder:
+    allow_custom: false
+    enabled: false
+id: block_content.cta_simple.justified
+targetEntityType: block_content
+bundle: cta_simple
+mode: justified
+content:
+  field_heading:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_links:
+    weight: 3
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_subheading:
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden: {  }

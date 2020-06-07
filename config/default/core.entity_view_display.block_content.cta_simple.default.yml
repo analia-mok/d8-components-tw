@@ -1,0 +1,44 @@
+uuid: 1bbccdbb-2031-4865-a1a0-ef5717205b45
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.cta_simple
+    - field.field.block_content.cta_simple.field_heading
+    - field.field.block_content.cta_simple.field_links
+    - field.field.block_content.cta_simple.field_subheading
+  module:
+    - link
+    - text
+id: block_content.cta_simple.default
+targetEntityType: block_content
+bundle: cta_simple
+mode: default
+content:
+  field_heading:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_links:
+    weight: 2
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_subheading:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden: {  }

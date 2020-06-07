@@ -1,0 +1,10 @@
+uuid: 20381409-21b5-41d6-9eaa-3c7ce9052b23
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+id: block_content.centered
+label: Centered
+targetEntityType: block_content
+cache: true

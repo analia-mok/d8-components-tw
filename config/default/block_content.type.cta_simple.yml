@@ -1,0 +1,8 @@
+uuid: 19fabc90-d46b-4752-96b9-c57c9166cef5
+langcode: en
+status: true
+dependencies: {  }
+id: cta_simple
+label: 'CTA - Simple'
+revision: 0
+description: 'Simple call to action style for linking to other pages or resources.'

@@ -1,0 +1,10 @@
+uuid: ac142f9a-ce42-4e83-a365-fdd29886c67d
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+id: block_content.justified
+label: Justified
+targetEntityType: block_content
+cache: true

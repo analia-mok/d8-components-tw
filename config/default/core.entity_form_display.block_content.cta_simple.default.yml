@@ -1,0 +1,50 @@
+uuid: db397f7f-b01f-410b-b158-c99d885f1c5f
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.cta_simple
+    - field.field.block_content.cta_simple.field_heading
+    - field.field.block_content.cta_simple.field_links
+    - field.field.block_content.cta_simple.field_subheading
+  module:
+    - link
+    - text
+id: block_content.cta_simple.default
+targetEntityType: block_content
+bundle: cta_simple
+mode: default
+content:
+  field_heading:
+    weight: 27
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textfield
+    region: content
+  field_links:
+    weight: 29
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_subheading:
+    weight: 28
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textfield
+    region: content
+  info:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }
