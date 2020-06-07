@@ -1,24 +1,6 @@
-@tailwind base;
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
 
-@tailwind components;
+@import 'fields/base';
 
-.button {
-  @apply inline-block px-4 py-2 bg-indigo-800 text-indigo-100 transition duration-200;
-}
-
-.button:hover,
-.button:focus {
-  @apply bg-indigo-200 text-indigo-800;
-}
-
-fieldset,
-.fieldset {
-  @apply p-4;
-}
-
-table td,
-.table td{
-  @apply py-4;
-}
-
-@tailwind utilities;
+@import 'tailwindcss/utilities';

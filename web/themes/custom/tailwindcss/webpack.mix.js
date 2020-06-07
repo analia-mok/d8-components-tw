@@ -1,4 +1,6 @@
 let mix = require("laravel-mix");
+const cssImport = require('postcss-import');
+const cssNesting = require('postcss-nesting');
 
 const purgecss = require("@fullhuman/postcss-purgecss")({
   // Specify the paths to all of the template files in your project
@@ -9,6 +11,8 @@ const purgecss = require("@fullhuman/postcss-purgecss")({
 });
 
 mix.postCss("styles/tailwind.css", "dist", [
+  cssImport(),
+  cssNesting(),
   require("tailwindcss"),
   require("autoprefixer"),
   ...(process.env.NODE_ENV === "production" ? [purgecss] : [])

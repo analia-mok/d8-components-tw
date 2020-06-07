@@ -1,0 +1,36 @@
+.button {
+  @apply inline-block px-4 py-2 bg-indigo-800 text-indigo-100 transition duration-200;
+
+  &:hover, &:focus {
+    @apply bg-indigo-200 text-indigo-800;
+  }
+}
+
+fieldset,
+.fieldset {
+  @apply p-4;
+}
+
+table td,
+.table td{
+  @apply py-4;
+}
+
+.field--name-field-hero-image img {
+  @apply inline-block rounded-md shadow-md;
+}
+
+.hero-section--two-cols .field.field--name-field-hero-links {
+  & > div {
+    @apply justify-center;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .hero-section--two-cols .field.field--name-field-hero-links {
+    & > div {
+      @apply justify-start;
+    }
+  }
+
+}

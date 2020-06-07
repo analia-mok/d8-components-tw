@@ -1,0 +1,60 @@
+{#
+/**
+ * @file
+ * Theme override to display a block.
+ *
+ * Available variables:
+ * - plugin_id: The ID of the block implementation.
+ * - label: The configured label of the block if visible.
+ * - configuration: A list of the block's configuration values.
+ *   - label: The configured label for the block.
+ *   - label_display: The display settings for the label.
+ *   - provider: The module or other provider that provided this block plugin.
+ *   - Block plugin specific settings will also be stored here.
+ * - content: The content of this block.
+ *   - field_heading: Block heading.
+ *   - field_subheading: (Optional) Block subheading.
+ *   - field_section_description: (Optional) Section description.
+ *   - field_hero_links: (Optional) Section links.
+ * - attributes: array of HTML attributes populated by modules, intended to
+ *   be added to the main container tag of this template.
+ *   - id: A valid HTML ID and guaranteed unique.
+ * - title_attributes: Same as attributes, except applied to the main title
+ *   tag that appears in the template.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ *
+ * @see template_preprocess_block()
+ */
+#}
+{%
+  set classes = [
+    'block',
+    'block-' ~ configuration.provider|clean_class,
+    'block-' ~ plugin_id|clean_class,
+    'min-h-half-screen',
+    'flex',
+    'items-center',
+    'justify-center',
+    'bg-gray-100',
+  ]
+%}
+<div{{ attributes.addClass(classes) }}>
+  <div class="text-center mx-2 my-8 md:mx-0 md:my-0 md:max-w-2xl">
+    {{ title_prefix }}
+    {{ title_suffix }}
+    <h2 class="font-black text-3xl md:text-4xl leading-none text-indigo-700 mb-4">{{ content.field_heading }}</h2>
+
+    {% if content.field_subheading %}
+      <h3 class="font-bold text-2xl md:text-3xl leading-none text-gray-800 mb-2">{{ content.field_subheading|field_value }}</h3>
+    {% endif %}
+
+    <div class="text-gray-600 text-lg">
+      {{ content.field_section_description }}
+    </div>
+
+    {{ content|without('field_heading', 'field_subheading', 'field_section_description') }}
+  </div>
+</div>

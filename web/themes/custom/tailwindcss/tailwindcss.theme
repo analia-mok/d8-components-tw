@@ -6,140 +6,31 @@
  */
 
 /**
- * Implements hook_preprocess_HOOK() for html.html.twig.
+ * Implements hook_theme_suggestions_HOOK_alter().
  */
-function tailwindcss_preprocess_html(array &$variables) {
-  /* Add class to html tag */
-  //$variables['html_attributes']->addClass('no-js');
+function tailwindcss_theme_suggestions_block_alter(array &$suggestions, array $variables) {
+  if (isset($variables['elements']['content']['#field_name'], $variables['elements']['content']['#entity_type'])) {
+    $entity_type = $variables['elements']['content']['#entity_type'];
+    // $suggestions is an array with first item containing the least specific
+    // suggestion. Our suggestion containing the field name is more specific
+    // than the first four suggestions, but less specific than any of
+    // the following.
+    array_splice($suggestions, 4, 0, 'block__field_block__' . $entity_type . '__' . $variables['elements']['content']['#field_name']);
+  }
 
-  // Don't display the site name twice on the front page (and potentially others)
-  /*if (isset($variables['head_title_array']['title']) && isset($variables['head_title_array']['name']) && ($variables['head_title_array']['title'] == $variables['head_title_array']['name'])) {
-    $variables['head_title'] = $variables['head_title_array']['name'];
-  }*/
-}
+  // Drupal does not currently provide template suggestions for custom
+  // block types.
+  if (isset($variables['elements']['content']['#block_content'])) {
+    // $suggestions is an array with first item containing the least specific
+    // suggestion. Our suggestions need to be inserted in the correct position
+    // to maintain increasing specificity. block_content and inline_blocks
+    // have slightly different base suggestions so the offset is different.
+    $splice_offset = $variables['elements']['#base_plugin_id'] === 'block_content' ? 2 : 3;
+    if (isset($variables['elements']['#configuration']['view_mode'])) {
+      array_splice($suggestions, $splice_offset, 0, 'block__custom_block__' . $variables['elements']['#base_plugin_id'] . '__' . $variables['elements']['content']['#block_content']->bundle() . '__' . $variables['elements']['#configuration']['view_mode']);
+      array_splice($suggestions, $splice_offset, 0, 'block__custom_block__' . $variables['elements']['content']['#block_content']->bundle() . '__' . $variables['elements']['#configuration']['view_mode']);
+    }
 
-/**
- * Implements hook_page_attachments_alter().
- */
-function tailwindcss_page_attachments_alter(array &$page) {
-  // Tell IE to use latest rendering engine (not to use compatibility mode).
-  /*$ie_edge = [
-    '#type' => 'html_tag',
-    '#tag' => 'meta',
-    '#attributes' => [
-    'http-equiv' => 'X-UA-Compatible',
-    'content' => 'IE=edge',
-    ],
-  ];
-  $page['#attached']['html_head'][] = [$ie_edge, 'ie_edge'];*/
-}
-
-/**
- * Implements hook_preprocess_page() for page.html.twig.
- */
-function tailwindcss_preprocess_page(array &$variables) {
-
-}
-
-/**
- * Implements hook_theme_suggestions_page_alter().
- */
-function tailwindcss_theme_suggestions_page_alter(array &$suggestions, array $variables) {
-
-}
-
-/**
- * Implements hook_theme_suggestions_node_alter().
- */
-function tailwindcss_theme_suggestions_node_alter(array &$suggestions, array $variables) {
-  /*$node = $variables['elements']['#node'];
-
-  if ($variables['elements']['#view_mode'] == "full") {
-
-  }*/
-}
-
-/**
- * Implements hook_preprocess_HOOK() for Block document templates.
- */
-function tailwindcss_preprocess_block(array &$variables) {
-
-}
-
-/**
- * Implements hook_theme_suggestions_field_alter().
- */
-function tailwindcss_theme_suggestions_field_alter(array &$suggestions, array $variables) {
-  /*$element = $variables['element'];
-  $suggestions[] = 'field__' . $element['#view_mode'];
-  $suggestions[] = 'field__' . $element['#view_mode'] . '__' . $element['#field_name'];*/
-}
-
-/**
- * Implements hook_theme_suggestions_field_alter().
- */
-function tailwindcss_theme_suggestions_fieldset_alter(array &$suggestions, array $variables) {
-  /*$element = $variables['element'];
-  if (isset($element['#attributes']['class']) && in_array('form-composite', $element['#attributes']['class'])) {
-    $suggestions[] = 'fieldset__form_composite';
-  }*/
-}
-
-/**
- * Implements hook_preprocess_node().
- */
-function tailwindcss_preprocess_node(array &$variables) {
-  // Default to turning off byline/submitted.
-  //$variables['display_submitted'] = FALSE;
-}
-
-/**
- * Implements hook_theme_suggestions_views_view_alter().
- */
-function tailwindcss_theme_suggestions_views_view_alter(array &$suggestions, array $variables) {
-
-}
-
-/**
- * Implements hook_preprocess_form().
- */
-function tailwindcss_preprocess_form(array &$variables) {
-  //$variables['attributes']['novalidate'] = 'novalidate';
-}
-
-/**
- * Implements hook_preprocess_select().
- */
-function tailwindcss_preprocess_select(array &$variables) {
-  //$variables['attributes']['class'][] = 'select-chosen';
-}
-
-/**
- * Implements hook_preprocess_field().
- */
-function tailwindcss_preprocess_field(array &$variables, $hook) {
-  /*switch ($variables['element']['#field_name']) {
-  }*/
-}
-
-/**
- * Implements hook_preprocess_details().
- */
-function tailwindcss_preprocess_details(array &$variables) {
-  /*$variables['attributes']['class'][] = 'details';
-  $variables['summary_attributes']['class'] = 'summary';*/
-}
-
-/**
- * Implements hook_theme_suggestions_details_alter().
- */
-function tailwindcss_theme_suggestions_details_alter(array &$suggestions, array $variables) {
-
-}
-
-/**
- * Implements hook_preprocess_menu_local_task().
- */
-function tailwindcss_preprocess_menu_local_task(array &$variables) {
-  //$variables['element']['#link']['url']->setOption('attributes', ['class'=>'rounded']);
+    array_splice($suggestions, $splice_offset, 0, 'block__custom_block__' . $variables['elements']['content']['#block_content']->bundle());
+  }
 }
