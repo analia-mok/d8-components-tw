@@ -16,4 +16,9 @@ fieldset,
   @apply p-4;
 }
 
+table td,
+.table td{
+  @apply py-4;
+}
+
 @tailwind utilities;
