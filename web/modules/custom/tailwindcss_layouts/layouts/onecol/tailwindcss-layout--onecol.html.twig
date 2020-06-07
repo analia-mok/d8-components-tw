@@ -12,11 +12,13 @@
 #}
 
 {% if content %}
-  <section{{ attributes.addClass(['md:flex-no-wrap']) }}>
-    {% if content.content %}
-      <div {{ region_attributes.content.addClass('w-full') }}>
-        {{ content.content }}
-      </div>
-    {% endif %}
+  <section class="{{ settings.wrapper_classes }}">
+    <div{{ attributes.addClass(['md:flex-no-wrap']) }}>
+      {% if content.content %}
+        <div {{ region_attributes.content.addClass('w-full') }}>
+          {{ content.content }}
+        </div>
+      {% endif %}
+    </div>
   </section>
 {% endif %}

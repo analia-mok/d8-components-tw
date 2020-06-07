@@ -84,6 +84,9 @@ class LayoutBase extends LayoutDefault implements PluginFormInterface {
 
       $build['#settings']['wrapper_classes'] = implode(' ', $backgroundClasses);
     }
+    else {
+      $build['#settings']['wrapper_classes'] = 'bg-white';
+    }
 
     return $build;
   }
